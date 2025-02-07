@@ -7,10 +7,10 @@ Although Java and Kotlin share the JVM runtime environment, their language desig
 
 | | Java | Kotlin | 
 | --- | --- | --- |
-| Total time | 690 ms | 807 ms |
+| Total time | 644 ms | 686 ms |
 | Total context switches | 10000000 | 10000000 |
-| Switches per second | 14492753.62 | 12391573.73 |
-| CPU time per switch | 0.000069 ms | 8.07E-5 ms |
+| Switches per second | 15527950.31 | 1.457725947521866E7 |
+| CPU time per switch | 0.000064 ms | 6.86E-5 ms |
 - **Memory Efficiency**: Memory allocation rate of Lambda expressions/higher-order functions (MB/s)
 - **GC Behavior**: Impact of null safety mechanisms on the frequency of NullPointerException (occurrences/minute)
 - **Compilation Optimization**: Strategy differences between Kotlin inline functions and JIT auto-inlining (percentage of inlined methods)
