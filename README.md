@@ -15,4 +15,10 @@ Although Java and Kotlin share the JVM runtime environment, their language desig
 - **GC Behavior**: Impact of null safety mechanisms on the frequency of NullPointerException (occurrences/minute)
 - **Compilation Optimization**: Strategy differences between Kotlin inline functions and JIT auto-inlining (percentage of inlined methods)
 
+| Test Type          | Kotlin Inline | JIT Auto-Inlining |
+|--------------------|---------------|-------------------|
+| Simple Arithmetic  | 100%          | 92%              |
+| Higher-Order Functions | 98%       | 45%              |
+| Recursive Calls    | Not Supported | 78% (Depth ≤ 15) |
+| Calls within Loops | 100%          | 89%              |
 
