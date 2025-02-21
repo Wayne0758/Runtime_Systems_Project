@@ -15,10 +15,8 @@ Although Java and Kotlin share the JVM runtime environment, their language desig
 
 | | Java | Kotlin | 
 | --- | --- | --- |
-| Lambda Allocation | 6.0 MB | 4.0 MB |
-| Lambda Allocation Execution Time | 38.8739 ms | 26.6284 ms |
-| Higher-Order Function Allocation | 6.0 MB | 4.0 MB |
-| Higher-Order Function Allocation Execution Time | 39.5942 ms | 27.7174 ms |
+| Lambda Function Allocation Rate | 152.29 MB/s | 131.62 MB/s |
+| Higher-Order Function Allocation Rate | 121.91 MB/s | 636.11 MB/s |
 - **GC Behavior**: Impact of null safety mechanisms on the frequency of NullPointerException (occurrences/minute)
 - **Compilation Optimization**: Strategy differences between Kotlin inline functions and JIT auto-inlining (percentage of inlined methods)
 
