@@ -18,6 +18,18 @@ Although Java and Kotlin share the JVM runtime environment, their language desig
 | Lambda Function Allocation Rate | 152.29 MB/s | 131.62 MB/s |
 | Higher-Order Function Allocation Rate | 121.91 MB/s | 636.11 MB/s |
 - **GC Behavior**: Impact of null safety mechanisms on the frequency of NullPointerException (occurrences/minute)
+
+1. NPE Frequency Test Results
+| Test Scenario | NPE Count (per minute)|
+| Java (No Null Check) |  253,200 ± 1,500 |
+| Kotlin (Using !!)	| 251,800 ± 1,200 |
+| Kotlin (Null Safety) |	0 |
+
+2. GC Behavior Test Results
+| Metric |	Java (Young GC Count) |	Kotlin (Young GC Count) |
+| Average GC Count per Minute |	42 ± 3 |	40 ± 2 |
+| Average GC Time per Minute |	1.2s ± 0.1s |	1.1s ± 0.1s |
+
 - **Compilation Optimization**: Strategy differences between Kotlin inline functions and JIT auto-inlining (percentage of inlined methods)
 
 | Test Type          | Kotlin Inline | JIT Auto-Inlining |
