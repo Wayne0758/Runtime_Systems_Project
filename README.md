@@ -53,3 +53,6 @@ Strategy differences between Kotlin inline functions and JIT auto-inlining (perc
 | Recursive Calls    | Not Supported | 78% (Depth ≤ 15) |
 | Calls within Loops | 100%          | 89%              |
 
+### Conclusion
+
+While Kotlin introduces more expressive features and runtime optimizations (e.g., coroutines and null safety), Java often benefits from more predictable performance due to its mature JIT optimizations and simpler bytecode. Developers optimizing for ART/JVM should balance Kotlin’s modern features with Java’s predictable runtime efficiency based on the project’s specific needs.
