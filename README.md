@@ -55,4 +55,4 @@ Strategy differences between Kotlin inline functions and JIT auto-inlining (perc
 
 ### Conclusion
 
-While Kotlin introduces more expressive features and runtime optimizations (e.g., coroutines and null safety), Java often benefits from more predictable performance due to its mature JIT optimizations and simpler bytecode. Developers optimizing for ART/JVM should balance Kotlin’s modern features with Java’s predictable runtime efficiency based on the project’s specific needs.
+Kotlin outperforms Java in null safety, higher-order function efficiency, and memory management, reducing NullPointerExceptions and optimizing garbage collection. While Java's thread pools handle raw context-switching slightly faster, Kotlin’s coroutines scale better for high-concurrency workloads. Java allocates lambda functions faster, but Kotlin excels in higher-order function memory efficiency. In compilation, Kotlin’s inline functions outperform Java’s JIT auto-inlining, except for recursive inlining, where Java is superior. Overall, Kotlin is better for modern Android and high-concurrency applications, while Java remains strong for CPU-intensive and recursive tasks.
