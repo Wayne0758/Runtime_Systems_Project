@@ -55,30 +55,29 @@ This test collects and analyzes the following performance metrics:
 ## Test Results
 
 ### Java Final Performance Results
-+----------------------+----------------------+----------------------+
-| Test Type            | Execution Time (ms)  | Time Per Call (ns)   |
-+----------------------+----------------------+----------------------+
-| Simple Arithmetic    |                 3.14 |                 0.31 |
-| High-Order Function  |                 6.24 |                 0.62 |
-| Recursive Call       |                35.33 |                 3.53 |
-| Calls Within Loops   |                 5.15 |                 0.51 |
-| Nested Call          |                 1.30 |                 1.30 |
-| Complex Condition    |                21.82 |                 2.18 |
-| Generic Function     |                 2.46 |                 0.25 |
-+----------------------+----------------------+----------------------+
+
+| Test Type            | Execution Time (ms) | Time Per Call (ns) |
+|----------------------|--------------------|--------------------|
+| Simple Arithmetic    | 3.14               | 0.31               |
+| High-Order Function  | 6.24               | 0.62               |
+| Recursive Call       | 35.33              | 3.53               |
+| Calls Within Loops   | 5.15               | 0.51               |
+| Nested Call         | 1.30               | 1.30               |
+| Complex Condition   | 21.82              | 2.18               |
+| Generic Function    | 2.46               | 0.25               |
 
 ### Kotlin Inline Function Analysis
+
 Kotlin's inline functions perform differently compared to normal functions in various scenarios:
-+----------------------+----------------------+----------------------+----------------------+
-| Test Type            | Inline Time (ms)     | Normal Time (ms)     | Improvement (%)      |
-+----------------------+----------------------+----------------------+----------------------+
-| Simple Arithmetic    |                 5.87 |                 3.17 |               -46.01 |
-| Higher-Order Func    |                 6.31 |                11.21 |                77.84 |
-| Calls Within Loops   |                 7.20 |                 2.92 |               -59.39 |
-| Nested Inline        |                 3.61 |                 1.91 |               -47.18 |
-| Complex Condition    |                18.37 |                22.83 |                24.30 |
-| Generic Function     |                 6.87 |                33.62 |               389.09 |
-+----------------------+----------------------+----------------------+----------------------+
+
+| Test Type            | Inline Time (ms) | Normal Time (ms) | Improvement (%) |
+|----------------------|-----------------|------------------|----------------|
+| Simple Arithmetic    | 5.87            | 3.17             | -46.01         |
+| Higher-Order Func    | 6.31            | 11.21            | 77.84          |
+| Calls Within Loops   | 7.20            | 2.92             | -59.39         |
+| Nested Inline        | 3.61            | 1.91             | -47.18         |
+| Complex Condition    | 18.37           | 22.83            | 24.30          |
+| Generic Function     | 6.87            | 33.62            | 389.09         |
 
 ## Generated Charts
 The test generates the following analysis charts:
