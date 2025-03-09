@@ -29,30 +29,40 @@ Impact of null safety mechanisms on the frequency of NullPointerException (occur
 
 1. NPE Frequency Test Results
 
-| Test Scenario | NPE Count (per minute)|
-| --- | --- |
-| Java (No Null Check) |  253,200 ± 1,500 |
-| Kotlin (Using !!)	| 251,800 ± 1,200 |
-| Kotlin (Null Safety) |	0 |
+| Test Scenario | total Count (per minute) | NPE Count (per minute)| NPE Percentage |
+| --- | --- | --- | --- |
+| Java (No Null Check) | 1946359943 | 973,129,579 | 49.997% |
+| Kotlin (Using !!) | 143851077 | 71,930,730 | 50.004% |
+| Kotlin (Null Safety) | 1987267338 | 0 | 0% |
 
 2. GC Behavior Test Results
 
-| Metric |	Java (Young GC Count) |	Kotlin (Young GC Count) |
+| Metric | Java | Kotlin |
 | --- | --- | --- |
-| Average GC Count per Minute |	42 ± 3 |	40 ± 2 |
-| Average GC Time per Minute |	1.2s ± 0.1s |	1.1s ± 0.1s |
+| Objects Created (1 min) | 3,640,000,000 | 3,830,000,000 |
+| GC Count (per minute) | 1,395 | 1,468 |
+| GC Time (ms per minute) | 455 | 455 |
 
 ### Compilation Optimization
 
 Strategy differences between Kotlin inline functions and JIT auto-inlining (percentage of inlined methods)
 
-| Test Type          | Kotlin Inline | JIT Auto-Inlining |
-|--------------------|---------------|-------------------|
-| Simple Arithmetic  | 100%          | 92%              |
-| Higher-Order Functions | 98%       | 45%              |
-| Recursive Calls    | Not Supported | 78% (Depth ≤ 15) |
-| Calls within Loops | 100%          | 89%              |
+| Test Type | Kotlin Inline | Kotlin Normal | Java Execution Time (ms) |
+|--------------------|---------------|-------------------|-------------------------|
+| Simple Arithmetic | 5.87 ms | 3.17 ms | 3.14 |
+| Higher-Order Functions | 6.31 ms | 11.21 ms | 6.24 |
+| Recursive Calls | Not Supported | Not Supported | 35.33 |
+| Calls within Loops | 7.20 ms | 2.92 ms | 5.15 |
+| Nested Call | 3.61 ms | 1.91 ms | 1.30 |
+| Complex Condition | 18.37 ms | 22.83 ms | 21.82 |
+| Generic Function | 6.87 ms | 33.62 ms | 2.46 |
 
 ### Conclusion
 
-Kotlin outperforms Java in null safety, higher-order function efficiency, and memory management, reducing NullPointerExceptions and optimizing garbage collection. While Java's thread pools handle raw context-switching slightly faster, Kotlin’s coroutines scale better for high-concurrency workloads. Java allocates lambda functions faster, but Kotlin excels in higher-order function memory efficiency. In compilation, Kotlin’s inline functions outperform Java’s JIT auto-inlining, except for recursive inlining, where Java is superior. Overall, Kotlin is better for modern Android and high-concurrency applications, while Java remains strong for CPU-intensive and recursive tasks.
+Kotlin outperforms Java in null safety, higher-order function efficiency, and memory management, reducing NullPointerExceptions and optimizing garbage collection. While Java's thread pools handle raw context-switching slightly faster, Kotlin's coroutines scale better for high-concurrency workloads. Java allocates lambda functions faster, but Kotlin excels in higher-order function memory efficiency. In compilation, Kotlin's inline functions outperform Java's JIT auto-inlining, except for recursive inlining, where Java is superior. Overall, Kotlin is better for modern Android and high-concurrency applications, while Java remains strong for CPU-intensive and recursive tasks.
+
+## Project Structure
+- `GC/`: Tests related to garbage collection behavior and NPE frequency
+- `Compliation/`: Tests related to compilation optimization and inlining
+- `Execution/`: Tests related to execution performance
+- `Memory/`: Tests related to memory efficiency

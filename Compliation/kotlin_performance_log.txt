@@ -1,0 +1,16 @@
+Kotlin Inline Function Benchmark:
+==================================
+
+=== Kotlin Inline Function Performance Summary ===
++----------------------+----------------------+----------------------+----------------------+
+| Test Type            | Inline Time (ms)     | Normal Time (ms)     | Improvement (%)      |
++----------------------+----------------------+----------------------+----------------------+
+| Simple Arithmetic    |                 5.87 |                 3.17 |               -46.01 |
+| Higher-Order Func    |                 6.31 |                11.21 |                77.84 |
+| Calls Within Loops   |                 7.20 |                 2.92 |               -59.39 |
+| Nested Inline        |                 3.61 |                 1.91 |               -47.18 |
+| Complex Condition    |                18.37 |                22.83 |                24.30 |
+| Generic Function     |                 6.87 |                33.62 |               389.09 |
++----------------------+----------------------+----------------------+----------------------+
+==================================
+Kotlin Inline Function Benchmark Completed
