@@ -1,0 +1,8 @@
+.gradle
+.idea
+.vscode
+.DS_Store
+.venv
+.pytest_cache
+
+build/

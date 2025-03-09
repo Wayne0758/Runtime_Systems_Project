@@ -1,0 +1,95 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0'
+    
+    // implementation 'org.openjdk.jmh:jmh-core:1.35'
+    // implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.35'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['Execution', 'GC', 'Memory', 'Compliation']
+        }
+        kotlin {
+            srcDirs = ['Execution', 'GC', 'Memory', 'Compliation']
+        }
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+// create tasks for each test
+task runJavaGCTest(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Java GC Test'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'GCTest'
+}
+
+task runKotlinGCTest(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Kotlin GC Test'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'GCTestKt'
+}
+
+task runJavaNPETest(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Java NPE Test'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'NpeTest'
+}
+
+task runKotlinNPETestForced(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Kotlin NPE Test with !! operator'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'NpeTestForcedKt'
+}
+
+task runKotlinNPETestSafe(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Kotlin NPE Test with safe calls'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'NpeTestSafeKt'
+}
+
+task runJavaInlineBenchmark(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Java JIT Inline Benchmark'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'JavaBenchmark'
+}
+
+task runKotlinInlineBenchmark(type: JavaExec) {
+    group = 'Runtime Systems'
+    description = 'Run Kotlin Inline Benchmark'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'InlineBenchmarkKt'
+}
+
+// run all tests
+task runAllTests {
+    group = 'Runtime Systems'
+    description = 'Run all tests'
+    dependsOn runJavaGCTest, runKotlinGCTest, runJavaNPETest, runKotlinNPETestForced, runKotlinNPETestSafe, runJavaInlineBenchmark, runKotlinInlineBenchmark
+} 
